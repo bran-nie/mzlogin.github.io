@@ -1,3 +1,6 @@
+# 关于我页面的 Skill Keywords。
+# 格式是：Skill 分类名字，以及下面对应的关键词
+
 - name: test
   keywords:
       - test

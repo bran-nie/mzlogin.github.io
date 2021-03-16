@@ -1,3 +1,6 @@
+# 关于我页面的 联系模块，
+# sitename 是平台名字， name 是用户名， url 用户在这个平台的主页
+
 - sitename: GitHub
   name: bran.nie
   url: https://github.com/bran-nie

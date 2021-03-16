@@ -1,3 +1,137 @@
+# 基于 [mzlogin](https://github.com/mzlogin) 博客模版的补充 - bran
+
+## 概览
+
+<!-- vim-markdown-toc GFM -->
+
+-   [目录结构](#目录结构)
+-   [配置](#配置)
+    -   [\_config.yml](#_config.yml)
+    -   [CDN\_加速配置](#CDN_加速配置)
+    -   [图床配置](#图床配置)
+    -   [Github Action](#Action)
+
+<!-- vim-markdown-toc -->
+
+## 目录结构
+
+```
+├── Gemfile     # ruby 配置文件
+├── Gemfile.lock
+├── LICENSE
+├── README.md   # 项目说明文档
+├── _config.yml # 项目配置文件
+├── _data       # 关于我页面和链接页面的模块数据配置
+│   ├── links.yml
+│   ├── skills.yml
+│   └── social.yml
+├── _drafts     # 草稿箱
+│   └── template.md
+├── _includes   # Jekyll 的组件，可在里面定制化修改页面
+│   ├── comments.html               # 评论模块
+│   ├── content-footer-ad.html      # 文章底部ad模块
+│   ├── content-header-ad.html      # 文章顶部ad模块
+│   ├── copyright.html              # 文章底部的文档信息
+│   ├── footer-ad.html              # 底部的ad模块
+│   ├── footer.html                 # 博客底部
+│   ├── header.html                 # 博客顶部
+│   ├── sidebar-ad.html             # 右侧栏的ad
+│   ├── sidebar-categories-cloud.html   # 标签云
+│   ├── sidebar-categories-nav.html     # 分类页面，右侧栏的文章统计
+│   ├── sidebar-popular-repo.html       # 右侧栏的 repo 列表
+│   ├── sidebar-post-nav.html           # 文章的目录结构
+│   ├── sidebar-qrcode.html             # 右侧栏二维码
+│   ├── sidebar-search.html             # 右侧栏的搜索模块
+│   ├── sns-share.html                  # 分享模块
+│   └── visit-stat.html                 # 访问量展示模块
+├── _layouts    # 是包裹在文章外部的模板，标签 {{ content }} 可以将content插入页面
+│   ├── categories.html
+│   ├── compress.html
+│   ├── default.html
+│   ├── mindmap.html
+│   ├── page.html
+│   ├── post.html
+│   └── wiki.html
+├── _posts      # 自己写的博客，存放的文件夹。格式必须要 Year-Month-Day-title.md
+│   ├── 2021-03-12-template.md
+│   └── template.md
+├── _wiki
+│   └── markdown.md
+├── _site  # 这个是 Jekyll 默认生成的文件夹。建议将这个放进 .gitignore 中
+├── assets      # 博客所需要的静态资源文件夹
+│   ├── css
+│   ├── images
+│   ├── js
+│   ├── search_data.json
+│   └── vendor
+├── pages   # 博客的其他页面，如404、about等
+│   ├── 404.md
+│   ├── about.md
+│   ├── archives.md
+│   ├── categories.md
+│   ├── links.md
+│   ├── mindmap-viewer.md
+│   ├── open-source.md
+│   └── wiki.md
+├── images
+├── favicon.ico
+├── index.html
+└── ads.txt
+```
+
+## 配置
+
+### \_config.yml
+
+> 依照 \_config.yml 的顺序说明
+
+-   填写个人信息
+-   是否开启 CDN 项，（PS：第一次请选择关闭，因为你的 GitHub 上面还没有博客的静态资源
+-   博客上面展示的作者信息，包括仓库的地址。
+-   `navs`，是博客顶部的导航链接列表
+-   `comments`，评论模板配置。具体参照所选的方案的官方文档。
+-   我新增了两个配置项，分别是博客所在的分支，和图床所在的分支名字，
+    -   repository_branch: "master"
+    -   repository_images_branch: "images"
+
+### CDN\_加速配置
+
+CDN 加速，即是寻找一个 CDN 服务商，将自己的的静态资源托管到他们的 CDN 服务上。
+
+<https://www.jsdelivr.com/>，这是一个支持 GitHub 的 CDN 服务商，在其官网上是作为重要特性来宣传的。
+
+GitHub 地址是 `https://github.com/mzlogin/mzlogin.github.io`， 那它里面的资源可以直接以 `https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io/ + 仓库里的文件路径` 来访问。
+
+比如仓库里有一个 js 文件 `assets/js/main.js`，那么它可以用 CDN 链接 `https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io/assets/js/main.js` 来访问。
+
+-   摘录 [使用 jsDelivr 免费加速 GitHub Pages 博客的静态资源](https://mazhuang.org/2020/05/01/cdn-for-github-pages/#jsdelivr-%E6%94%AF%E6%8C%81%E7%9A%84-github-%E8%B5%84%E6%BA%90%E7%9A%84%E6%96%B9%E5%BC%8F)
+
+### 图床配置
+
+> 该部分为可选项，使用图床是为了更方便的支持图片引用
+
+首先，GitHub 可以作为一个优秀的图床来使用，但美中不足的是，在国内访问图床的速度感人。但结合上面的 CDN 加速，就可以补全这个不足，从而让 GitHub 成为完美的图床。
+
+在写博客的过程中，可能我们采取的素材是截图，那么流程就是截图以后，还要保存到本地，那流程还是比较麻烦的，有没有什么好的方式呢？这里介绍一款图床工具，
+[PicGo](https://molunerfinn.com/PicGo/)
+
+![](https://raw.githubusercontent.com/bran-nie/bran-nie.github.io/images/images/blog/picgo.png)
+
+具体的使用，可以查看[官方文档](https://picgo.github.io/PicGo-Doc/zh/guide/config.html#github%E5%9B%BE%E5%BA%8A)
+
+我的博客图床采取的做法是，新建一个空白 Git 分支- images，在 PicGo 的图床配置中，将图床的分支设置为 images
+
+![](https://raw.githubusercontent.com/bran-nie/bran-nie.github.io/images/images/blog/PicGo_config.png)
+
+### Action
+
+这个配置是为了加速站内搜索引用的。
+具体原因和采取方案，可以看作者的博客
+
+[站内搜索引用的 JSON 资源加速](https://mazhuang.org/2020/10/07/cdn-for-github-pages-2/#0x02-%E7%AB%99%E5%86%85%E6%90%9C%E7%B4%A2%E5%BC%95%E7%94%A8%E7%9A%84-json-%E8%B5%84%E6%BA%90%E5%8A%A0%E9%80%9F)
+
+---
+
 # 码志
 
 我的个人博客：<https://mazhuang.org>，欢迎 Star 和 Fork。

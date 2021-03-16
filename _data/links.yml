@@ -1,5 +1,5 @@
+# 这个是链接配置页面，格式分别是 链接的 name，链接的 url，链接的分类。其中分类有两个，分别是 life 和 src，life 对应的是朋友、src 对应的友情链接
 - name: name
   url: url
-  
   src: 
   # 分类，目前是有 life 和 src 两个。
