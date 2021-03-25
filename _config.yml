@@ -1,23 +1,28 @@
 # ---------------- #
 #   Main Configs   #
+#   博客网站的配置信息   #
 # ---------------- #
 baseurl:
-url: https://bran-nie.github.io
+url: # 你的 GitHub Page 地址，如 username.github.io。自定义域名的，请输入自定义域名。
+title: Title # 你的首页 Title & 首页标签页 Title
+subtitle: '言念君子，温其如玉' # 你的首页简介
+description: 'description' # 你的网站描述
+keywords: 前端 # 你的网站 关键词 ，与上面的描述构成网站 SEO
+side_bar_repo_limit: 3 # 首页左侧栏的 repo 显示数量
+repository: bran-nie/bran-nie.github.io # 博客所在的仓库
+repository_branch: 'master'
+# 如果使用图床，这里是图床相关的配置
+repository_images_branch: 'images'
+
 date_format: 'ordinal'
-title: 鹏程
-subtitle: '言念君子，温其如玉'
-description: 'description'
-keywords: 前端
 timezone: Asia/Shanghai
 encoding: 'utf-8'
-side_bar_repo_limit: 3
-repository: bran-nie/bran-nie.github.io
-repository_branch: 'master'
-repository_images_branch: 'images'
+
 # 对 css 和 js 资源的 cdn 加速配置
 cdn:
     jsdelivr:
         enabled: true
+
 # 组件配置
 components:
     # 分享
@@ -27,15 +32,17 @@ components:
     busuanzi:
         enabled: false
         start_date: 2020-05-03
+
 # 压缩页面内容
 compress_html:
     clippings: all
     comments: ['<!--', '-->']
+
 # 文章字数统计
 word_count:
     enabled: true
 
-# 深色模式（简单版），可选值：automatic 跟随系统；usercontrol 用户控制；none 不需要。  default: none;
+# 深色模式（简单版），可选值：automatic 跟随系统；usercontrol 用户控制；none 不需要。  关闭: none;
 dark_mode: usercontrol
 
 # 代码高亮风格，支持的 theme 列表见 https://github.com/mzlogin/rouge-themes
@@ -45,16 +52,17 @@ highlight_theme: github
 # ---------------- #
 #      Author      #
 # ---------------- #
-author: Bran.nie
+author: Bran.nie # 你的文章作者名字
 organization:
 organization_url:
-github_username: Bran-nie
-location: Shenzhen, China
-email: pengcheng1995@gmail.com
-since_date: 2016
+github_username: Bran-nie # 你的GitHub username
+location: Shenzhen, China # 你的所在城市
+email: xxx@gmail.com # 你的邮箱
+since_date: 2016 # 你的网站开始时间
 
 # ---------------- #
 #    Navigation    #
+#    网站的顶部导航栏    #
 # ---------------- #
 navs:
     - href: /

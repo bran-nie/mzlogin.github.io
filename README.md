@@ -5,6 +5,7 @@
 <!-- vim-markdown-toc GFM -->
 
 -   [目录结构](#目录结构)
+-   [启动本地服务预览博客](#启动本地服务预览博客)
 -   [配置](#配置)
     -   [\_config.yml](#_config.yml)
     -   [CDN\_加速配置](#CDN_加速配置)
@@ -78,6 +79,23 @@
 ├── index.html
 └── ads.txt
 ```
+
+## 启动本地服务预览博客
+
+> 这部分较为繁琐，有确切需要在本地预览博客且喜爱折腾的人，请继续阅读。
+
+### 基本要求
+
+-   安装 Ruby
+-   安装 Bundler
+-   安装 Jekyll
+
+-   安装上述环境后，在项目中执行 `bundler install`
+-   使用 `yarn start` or `npm start` 开启服务
+    -   实际上是使用 `bundler exec jekyll serve` 开启服务，这里我是简化了命令
+
+详细有关本地构建网站的文档，请参考该文档 [使用 Jekyll 在本地测试 GitHub Pages 站点
+](https://docs.github.com/cn/github/working-with-github-pages/testing-your-github-pages-site-locally-with-jekyll)
 
 ## 配置
 
