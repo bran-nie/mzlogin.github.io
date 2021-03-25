@@ -1,5 +1,7 @@
 # 基于 [mzlogin](https://github.com/mzlogin) 博客模版的补充 - bran
 
+如需帮助，[点击此处](https://github.com/bran-nie/bran-nie.github.io/issues/new)，提 Issue 联系我。
+
 ## 概览
 
 <!-- vim-markdown-toc GFM -->
